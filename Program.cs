@@ -3,13 +3,13 @@ using FruitWebApiREST.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Busca dados na memória
-/*builder.Services.AddDbContext<FruitContext>
-    (opt => opt.UseInMemoryDatabase("FruitsDB"));*/
-
-// Busca dados na base de dados
+// Dados da memÃ³ria
 builder.Services.AddDbContext<FruitContext>
-    (option => option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    (opt => opt.UseInMemoryDatabase("FruitsDB"));
+
+// Dados da base de dados
+/*builder.Services.AddDbContext<FruitContext>
+    (option => option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));*/
 
 builder.Services.AddControllers();
 
